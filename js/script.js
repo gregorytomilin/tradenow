@@ -2,6 +2,8 @@ let inputPass = document.querySelector('#inputPass');
 let inputEmail = document.querySelector('#inputEmail');
 let wrongPassAtt = document.querySelector('.form_inputblock_wrongPass_inner');
 let wrongEmail = document.querySelector('.form_email_error');
+let checkboxFormAgreement = document.querySelector('#form_agreement');
+// let formAgreement = document.querySelector('.form_agreement');
 
 // Кнопка отправки данных
 let buttonReg = document.querySelector('#buttonReg');
@@ -17,6 +19,12 @@ buttonReg.addEventListener('click', (e)=>{
         wrongEmail.style.display = 'flex'
     } else {wrongEmail.style.display = 'none'}
 
+
+    if(!checkboxFormAgreement.checked){
+        checkboxFormAgreement.classList.add('unchecked_agreement');
+    } else{
+        checkboxFormAgreement.classList.remove('unchecked_agreement');
+    }
 
 
 });
