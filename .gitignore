@@ -4,7 +4,16 @@
 # Ada Library Information
 *.ali
 .idea/workspace.xml
+# Для phpStorm
+  .idea
 
+# Для Sublime Text
+  *.sublime-project
+  *.sublime-workspace
+  *.cache
+
+# Сам файл gitignore
+  .gitignore
 
 
 # Created by https://www.gitignore.io/api/windows,phpstorm
@@ -129,4 +138,5 @@ $RECYCLE.BIN/
 .idea/modules.xml
 .idea/gitTutorial.iml
 .idea/misc.xml
+'.idea' 
 '.idea' 
