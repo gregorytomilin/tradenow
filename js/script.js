@@ -3,29 +3,60 @@ let inputEmail = document.querySelector('#inputEmail');
 let wrongPassAtt = document.querySelector('.form_inputblock_wrongPass_inner');
 let wrongEmail = document.querySelector('.form_email_error');
 let checkboxFormAgreement = document.querySelector('#form_agreement');
-// let formAgreement = document.querySelector('.form_agreement');
 
+checkboxFormAgreement.addEventListener('click',()=>{
+    if(!checkboxFormAgreement.checked){
+        checkboxFormAgreement.classList.add('unchecked_agreement');
+
+
+    } else{
+        checkboxFormAgreement.classList.remove('unchecked_agreement');
+        agreementOk = true;
+    }
+});
 // Кнопка отправки данных
 let buttonReg = document.querySelector('#buttonReg');
 buttonReg.addEventListener('click', (e)=>{
-    e.preventDefault()
+    e.preventDefault();
+    // ключи проверки
+    let emailOk = false;
+    let passOk = false;
+    let agreementOk = false;
+
+    // Проверка пароля
     if(inputPass.value.length<4){
         wrongPassAtt.style.display = 'block';
         wrongPassAtt.addEventListener('click',()=>{
             wrongPassAtt.style.display = 'none'
         })
-    } else {wrongPassAtt.style.display = 'none'}
-    if(inputEmail.value == 'test@email.ru'){
-        wrongEmail.style.display = 'flex'
-    } else {wrongEmail.style.display = 'none'}
-
-
-    if(!checkboxFormAgreement.checked){
-        checkboxFormAgreement.classList.add('unchecked_agreement');
-    } else{
-        checkboxFormAgreement.classList.remove('unchecked_agreement');
+    } else {
+        wrongPassAtt.style.display = 'none';
+        passOk = true;
     }
 
+    // Проверка email
+    if(inputEmail.value == 'test@email.ru'){
+        wrongEmail.style.display = 'flex'
+    } else {
+        wrongEmail.style.display = 'none'
+        emailOk = true;
+    }
+
+    // Проверка соглашения
+    if(!checkboxFormAgreement.checked){
+        checkboxFormAgreement.classList.add('unchecked_agreement');
+
+
+    } else{
+        checkboxFormAgreement.classList.remove('unchecked_agreement');
+        agreementOk = true;
+    }
+
+    if(passOk && emailOk && agreementOk){
+        console.log('отправка на сервер')
+    }else {
+        console.log('не полные данные')
+    }
 
 });
 
