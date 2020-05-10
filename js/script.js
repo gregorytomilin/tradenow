@@ -3,6 +3,11 @@ let inputEmail = document.querySelector('#inputEmail');
 let wrongPassAtt = document.querySelector('.form_inputblock_wrongPass_inner');
 let wrongEmail = document.querySelector('.form_email_error');
 let checkboxFormAgreement = document.querySelector('#form_agreement');
+let currencyCheck = document.getElementsByName('currency');
+
+let emailOk = false;
+let passOk = false;
+let agreementOk = false;
 
 checkboxFormAgreement.addEventListener('click',()=>{
     if(!checkboxFormAgreement.checked){
@@ -19,9 +24,7 @@ let buttonReg = document.querySelector('#buttonReg');
 buttonReg.addEventListener('click', (e)=>{
     e.preventDefault();
     // ключи проверки
-    let emailOk = false;
-    let passOk = false;
-    let agreementOk = false;
+
 
     // Проверка пароля
     if(inputPass.value.length<4){
@@ -36,24 +39,35 @@ buttonReg.addEventListener('click', (e)=>{
 
     // Проверка email
     if(inputEmail.value == 'test@email.ru'){
-        wrongEmail.style.display = 'flex'
+        wrongEmail.style.display = 'flex';
+        emailOk = false;
     } else {
-        wrongEmail.style.display = 'none'
+        wrongEmail.style.display = 'none';
         emailOk = true;
     }
 
     // Проверка соглашения
     if(!checkboxFormAgreement.checked){
         checkboxFormAgreement.classList.add('unchecked_agreement');
-
+        agreementOk = false;
 
     } else{
         checkboxFormAgreement.classList.remove('unchecked_agreement');
         agreementOk = true;
     }
-
+    // Проверка ключей и отправка на сервер
     if(passOk && emailOk && agreementOk){
         console.log('отправка на сервер')
+        let dataServer = '';
+        let currencyValue;
+        for (const radio of currencyCheck){
+            if (radio.checked){
+                currencyValue = radio.id;
+            }
+
+        }
+        dataServer = `Почта:${inputEmail.value} Пароль:${inputPass.value} Валюта: ${currencyValue}`;
+        console.log(dataServer);
     }else {
         console.log('не полные данные')
     }
