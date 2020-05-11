@@ -428,6 +428,9 @@ input[type=checkbox]:checked + label:before {
         .main{
             flex-direction: column;
         }
+        .main_img {
+            display: none;
+        }
         .main_form {
             width: auto;
             margin: 0 auto;
