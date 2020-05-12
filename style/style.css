@@ -12,13 +12,14 @@ h1,h2,h3,h4,h5,h6 {    font-weight: normal;    font-size: 100%;}
 q:before,q:after {    content:'';}
 abbr,acronym { border: 0;}
 a, a:hover, a:visited, a:focus {text-decoration:-moz-none;    text-decoration:none;}
-button, input, a:active,a:focus{outline: none;}
+label, button, input, a:active,a:focus{outline: none;}
 
 /*End CSS Reset*/
 
 
 
 body{
+    position: relative;
     background: #0b172a;
     font-family: 'Open Sans', sans-serif;
     -moz-user-select: -moz-none;
@@ -26,17 +27,20 @@ body{
     -khtml-user-select: none;
     -webkit-user-select: none;
     user-select: none;
+    /*width: 100vw;*/
 }
 
 .center{
-    max-width: 1240px;
+    /*max-width: 1240px;*/
     margin: 0 auto;
+    position: relative;
 }
 .header {
     display: flex;
-    margin-top: 28px;
+    margin-top: 16px;
     justify-content: space-between;
-    margin-bottom: 28px;
+    align-items: center;
+    margin-bottom: 16px;
 }
 .block_one {
     width: 140px;
@@ -62,10 +66,14 @@ body{
     font-size: 16px;
     color: #FFFFFF;
     cursor: pointer;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: transparent;
 }
 
 .block_two button:focus{
     outline: none;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: transparent;
 }
 
 .block_two button img {
@@ -81,29 +89,18 @@ body{
 
 
 .main {
-    display: flex;
-}
+     display: flex;
+    /*margin-left: 100px;*/
+ }
 .main_img{
-    display: flex;
     position: absolute;
     right: 0;
+    top: 72px;
+    overflow: hidden;
+    z-index: -10;
 }
-.main_img1{
-    /*left: -24px;*/
-    z-index: 20;
-    /*position: absolute;*/
-    /*top: 130px;*/
-}
-.main_img2{
-    /*position: absolute;*/
-}
-.main_img1 img{
-    max-width: 245px;
-    margin-right: -234px;
-    margin-top: 130px;
-    z-index: 20;;
-}
-.main_img2 img{
+
+.main_img img{
     height: 613px;
 
 }
@@ -126,22 +123,26 @@ h1{
     letter-spacing: 0;
     line-height: 48px;
     margin-bottom: 24px;
+    letter-spacing: 1;
 }
 .main_form {
-    max-width: 440px;
-    width: 100%;
+    z-index: 10;
+    width: 440px;
+
+
+
 }
 .main_form ul{
     margin: 0 0 10px 10px;
-    padding-left: 15px;
+    padding-left: 20px;
     list-style-image: url("../img/check.png");
     list-style-type: outside;
-    margin-bottom: 28px;
+    margin-bottom: 48px;
 }
 .main_form ul li{
-    font-size: 16px;
-    margin-bottom: 20px;
-    padding-left: 19px;
+    font-size: 15px;
+    margin-bottom: 14px;
+    padding-left: 12px;
     color: #7A8F99;
     letter-spacing: 0;
     line-height: 24px;
@@ -248,9 +249,18 @@ input[type="text"] {
 }
 
 
+.main_form_currency {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 24px;
+}
+.main_form_currency_inputs{
+    display: flex;
+    max-width: 296px;
+}
 
-
-.main_form_currency span{
+.main_form_currency_ann{
+    max-width: 128px;
     font-size: 12px;
     color: #7A8F99;
     letter-spacing: 0;
@@ -262,9 +272,13 @@ input[type="text"] {
     z-index: -1;
     opacity: 0;
 }
-.main_form_currency {
-    display: flex;
-    margin-bottom: 24px;
+
+
+.main_form_currency label{
+    outline: none;
+
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: transparent;
 }
 
 .main_form_currency label:first-of-type {
@@ -284,17 +298,32 @@ input[type="text"] {
     background-color: #212d3e;
     color: #777e89;
     border: 1px solid #212d3e;!important;
-    width: 97px;
+    width: 99px;
     display: block;
     text-align: center;
     cursor: pointer;
 }
 
 .currencyChecked+label{
-    color: #FFFFFF;!important;
-    border: 1px solid #20A86B;!important;
+    color: #FFFFFF!important;
+    !important;border: 1px solid #20A86B!important;
     background-color: #0b172a;
 }
+#form_cur_usd+label{
+    border-left:1px solid #0b172a;
+    border-right:1px solid #0b172a;
+}
+
+
+
+
+
+
+
+
+
+
+
 .form_email_error {
     display: none;
     flex-direction: row;
@@ -342,7 +371,8 @@ input[type="text"] {
     text-align: center;
     line-height: 24px;
     border: none;
-
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: transparent;
 }
 #buttonReg:focus{
     outline: none;
@@ -351,6 +381,7 @@ input[type="text"] {
 
 .main_form_agreement{
     display: flex;
+    margin-bottom: 32px;
 }
 input[type=checkbox] {
     position: absolute;
@@ -368,27 +399,21 @@ input[type=checkbox] +label{
     letter-spacing: 0;
     line-height: 16px;
 
-    -moz-user-select: -moz-none;
-    -o-user-select: none;
-    -khtml-user-select: none;
-    -webkit-user-select: none;
-    user-select: none;
 }
 input[type=checkbox] + label:before {
     content: "";
     box-sizing: border-box;
-    width: 40px;
+    min-width: 32px;
     height: 32px;
-    margin-right: 10px;
+    margin-right: 16px;
     opacity: 1;
-    /*border: 1px dashed #212d3e;*/
     background: #212d3e;
     border-radius: 4px;
     line-height: 28px;
-    margin-bottom: 24px;
+    /*margin-bottom: 24px;*/
 }
 .unchecked_agreement+label:before{
-    border: 1px solid #a8210f;!important;
+    border: 1px solid #E15433;!important;
 }
 
 input[type=checkbox]:checked + label:before {
@@ -400,45 +425,67 @@ input[type=checkbox]:checked + label:before {
 }
 
 
+@media (min-width: 1441px){
+    .center {
+        max-width: 1240px;
+        }
+}
 
+@media (max-width: 1440px){
+    .center {
+        width: auto;
+        margin-left: 100px;
+        margin-right: 100px;
+    }
+    .main_img{
+        left: 632px;
+    }
+}
 
-
-
-
-@media (max-width: 1300px) {
-    .header{
-        padding: 0 10px;
+@media (max-width: 642px){
+    .center {
+        max-width: 440px;
+        margin: 0 auto;
+        padding-left: 10px;
+        padding-right: 10px;
     }
     .main_form{
-        padding: 0 10px;
+        width: 100%;
     }
-.main_img{
-    width: 50%;
-    overflow: hidden;
+    #checkin_form{
+        width: auto;
+    }
+    .main_img{
+        left: 632px;
+    }
+    #buttonReg{
+        width: 100%;
+    }
+    .main_form ul {
+        margin: 10px auto;}
 }
 
-    @media (max-width: 910px) {
-        .main_img{
-            position: relative;
-            overflow: hidden;
-        }
+@media (max-width: 440px) {
+    .main_form_currency{
+        flex-direction: column;
     }
-
-    @media (max-width: 690px) {
-        .main{
-            flex-direction: column;
-        }
-        .main_img {
-            display: none;
-        }
-        .main_form {
-            width: auto;
-            margin: 0 auto;
-        }
-        .main_img{
-            width: 100%;
-
-            overflow: auto;
-        }
+    .main_form_currency_ann{
+        max-width: none;
+        margin-bottom: 10px;
+    }
+    .main_form_currency_inputs{
+        max-width: 100%;
+    }
+    .main_form_currency label{
+        width: 100%;
     }
 }
+
+@media (max-width: 327px) {
+    .form_email_error {
+        font-size: 13px;
+    }
+}
+
+
+

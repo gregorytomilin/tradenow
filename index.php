@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="style/style.css?v=1.0.9">
+    <link rel="stylesheet" href="style/style.css?v=1.0.13">
     <title>TradeToday</title>
 </head>
 <body>
@@ -48,13 +48,15 @@
 
 
                 <div class="main_form_currency">
-                    <span>Валюта для ввода и вывода средств</span>
+                    <div class="main_form_currency_ann">Валюта для ввода и вывода средств</div>
+                    <div class="main_form_currency_inputs">
                     <input id="form_cur_rub" type="radio" name="currency" checked>
                     <label for="form_cur_rub">P</label>
                     <input id="form_cur_usd" type="radio" name="currency">
                     <label for="form_cur_usd">S</label>
                     <input id="form_cur_euro" type="radio" name="currency">
                     <label for="form_cur_euro">E</label>
+                    </div>
 
                 </div>
                 <div class="main_form_agreement">
@@ -71,15 +73,13 @@
                 <button id="buttonReg">Зарегистрироваться</button>
             </form>
         </div>
-        <div class="main_img">
-            <div class="main_img1"><img src="img/frontal-black.png" alt=""></div>
-            <div class="main_img2"><img src="img/dark.png" alt=""></div>
-        </div>
     </div>
 </div>
 
+<div class="main_img"><img src="img/dark.png" alt=""></div>
 
-<script src="js/script.js"></script>
+
+<script src="js/script.js?v=1.0.13"></script>
 
 
 </body>
